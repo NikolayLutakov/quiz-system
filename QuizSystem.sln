@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QS.BaseWebApi", "QS.BaseWebApi\QS.BaseWebApi.csproj", "{068F953A-55EE-428C-AF67-EA63DB05FCB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QS.Shared", "QS.Shared\QS.Shared.csproj", "{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{068F953A-55EE-428C-AF67-EA63DB05FCB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{068F953A-55EE-428C-AF67-EA63DB05FCB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{068F953A-55EE-428C-AF67-EA63DB05FCB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

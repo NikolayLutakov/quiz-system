@@ -1,0 +1,8 @@
+name: runbasewebapi
+services:
+- name: basewebapi
+  project: ./QS.BaseWebApi.csproj
+  bindings: 
+    - port: 5050
+      protocol: http
+      name: http
