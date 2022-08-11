@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QS.BaseWebApi", "QS.BaseWeb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QS.Shared", "QS.Shared\QS.Shared.csproj", "{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QS.Authentication", "QS.Authentication\QS.Authentication.csproj", "{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
