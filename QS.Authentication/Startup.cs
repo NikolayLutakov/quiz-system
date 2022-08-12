@@ -2,53 +2,97 @@
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
 
+using IdentityServer4;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using QS.Authentication.Server.Data;
+using QS.Authentication.Server.Data.Models;
+using Serilog;
+using System;
 
 namespace QS.Authentication
 {
     public class Startup
     {
         public IWebHostEnvironment Environment { get; }
+        public IConfiguration Configuration { get; }
 
-        public Startup(IWebHostEnvironment environment)
+        public Startup(IWebHostEnvironment environment, IConfiguration configuration)
         {
             Environment = environment;
+            Configuration = configuration;
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews();
+
+            var userConnectionString = System.Environment.GetEnvironmentVariable("U_CONN");
+            if (string.IsNullOrEmpty(userConnectionString))
+            {
+                userConnectionString = Configuration.GetConnectionString("UserDbConnection");
+            }
+            
+            services.RegisterDataServices(userConnectionString);
+
+
             var builder = services.AddIdentityServer(options =>
             {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.Events.RaiseSuccessEvents = true;
+
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
             })
                 .AddInMemoryIdentityResources(Config.IdentityResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
-                .AddInMemoryClients(Config.Clients);
+                .AddInMemoryClients(Config.Clients)
+                .AddInMemoryApiResources(Config.ApiResoprces)
+                .AddAspNetIdentity<ApplicationUser>();
+
+            // not recommended for production - you need to store your key material somewhere secure
+            builder.AddDeveloperSigningCredential();
+
+            services.AddAuthentication()
+                .AddGoogle(options =>
+                {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+                    
+                    // register your IdentityServer with Google at https://console.developers.google.com
+                    // enable the Google+ API
+                    // set the redirect URI to https://localhost:5001/signin-google
+                    options.ClientId = "copy client ID from Google here";
+                    options.ClientSecret = "copy client secret from Google here";
+                });
+
+            services.AddDatabaseDeveloperPageExceptionFilter();
         }
 
         public void Configure(IApplicationBuilder app)
         {
+            app.PrepareDb();
+
             if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
 
-            // uncomment if you want to add MVC
-            //app.UseStaticFiles();
-            //app.UseRouting();
-            
-            app.UseIdentityServer();
+            app.UseStaticFiles();
 
-            // uncomment, if you want to add MVC
-            //app.UseAuthorization();
-            //app.UseEndpoints(endpoints =>
-            //{
-            //    endpoints.MapDefaultControllerRoute();
-            //});
+            app.UseRouting();
+            app.UseIdentityServer();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapDefaultControllerRoute();
+            });
         }
     }
 }

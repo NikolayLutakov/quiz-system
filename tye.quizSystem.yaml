@@ -1,0 +1,17 @@
+name: quizsystem
+services:
+- name: basewebapi
+  project: ./QS.BaseWebApi/QS.BaseWebApi.csproj
+  bindings: 
+    - port: 5050
+      protocol: http
+      name: http
+- name: authentication
+  project: ./QS.Authentication/QS.Authentication.csproj
+  env:
+    - name: U_CONN
+      value: "Server=.;Database=QSUsers;User ID=nlyutakov;Password=1;MultipleActiveResultSets=true"
+  bindings: 
+    - port: 5051
+      protocol: https
+      name: https

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QS.BaseWebApi", "QS.BaseWebApi\QS.BaseWebApi.csproj", "{068F953A-55EE-428C-AF67-EA63DB05FCB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QS.BaseWebApi", "QS.BaseWebApi\QS.BaseWebApi.csproj", "{068F953A-55EE-428C-AF67-EA63DB05FCB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QS.Shared", "QS.Shared\QS.Shared.csproj", "{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QS.Shared", "QS.Shared\QS.Shared.csproj", "{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QS.Authentication", "QS.Authentication\QS.Authentication.csproj", "{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QS.Authentication", "QS.Authentication\QS.Authentication.csproj", "{9DA93B13-73B4-46F3-9CF4-722246E07514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QS.Authentication.Server.Data", "QS.Authentication.Server.Data\QS.Authentication.Server.Data.csproj", "{F4CE61F0-920D-4485-9681-18B4AC8BED41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,14 @@ Global
 		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F984B65B-8B62-4A22-ACCE-01E232BAE4D4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2E33B77-BEEA-4419-9CA7-659C973DCD6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DA93B13-73B4-46F3-9CF4-722246E07514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA93B13-73B4-46F3-9CF4-722246E07514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA93B13-73B4-46F3-9CF4-722246E07514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA93B13-73B4-46F3-9CF4-722246E07514}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4CE61F0-920D-4485-9681-18B4AC8BED41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4CE61F0-920D-4485-9681-18B4AC8BED41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4CE61F0-920D-4485-9681-18B4AC8BED41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4CE61F0-920D-4485-9681-18B4AC8BED41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
